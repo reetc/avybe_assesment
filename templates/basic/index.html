@@ -1,0 +1,25 @@
+{% extends "basic/base.html" %}
+{% block body_block %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Avybe</h1>
+    {% if user.is_authenticated %}
+
+        <h2>Welcome {{ name }}!</h2>
+        {% if imagefile %}
+        <img src='{{ imagefile.url }}'>
+        {% else %}
+        <p> No image to display. Click on Update to upload an image </p>
+        {% endif %}
+    {% else %}
+        <h2>Welcome to the site!</h2>
+    {% endif %}
+
+
+    <!-- <img src='{{ user.profile_pic.url }}'> -->
+
+  </div>
+</div>
+
+{% endblock %}

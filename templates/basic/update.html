@@ -1,0 +1,23 @@
+{% extends "basic/base.html" %}
+{% load static %}
+
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if updated %}
+        <h1>Profile Updated!</h1>
+      {% else %}
+        <h1>Update Profile</h1>
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ profile_form.as_p }}
+          <input type="submit" name="" value="Update">
+        </form>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+
+{% endblock %}
